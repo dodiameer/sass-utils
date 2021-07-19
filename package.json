@@ -1,6 +1,6 @@
 {
   "name": "@dodiameer/sass-utils",
-  "version": "1.0.0",
+  "version": "1.0.0-hotfix.1",
   "description": "Sass utilities, mixins, functions that you write in every project",
   "main": "index.js",
   "scripts": {
