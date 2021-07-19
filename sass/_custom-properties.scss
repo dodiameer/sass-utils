@@ -19,7 +19,7 @@ $property-prefix: "css" !default;
     @return var(--#{$prefix}-#{$name});
   } @else {
     @return get(
-      $names: helpers.list-slice($names, 2),
+      $names: helpers.slice($names, 2),
       $prefix: $prefix + "-" + $name
     );
   }
