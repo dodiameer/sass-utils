@@ -1,0 +1,45 @@
+@mixin hyphens {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+@mixin ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin import-fonts($fonts...) {
+  // Credits:
+  // https://codepen.io/KittyGiraudel/pen/aEzLf
+  $url: "https://fonts.googleapis.com/css2?family=";
+  $nb: 0;
+  @debug "Importing fonts from Google. This is only recommended in development because the mixin might not get all font styles.";
+
+  @each $font-name in $fonts {
+    $nb: $nb + 1;
+    $nb-word: 0;
+
+    @each $word in $font-name {
+      $nb-word: $nb-word + 1;
+      $url: $url + $word;
+
+      @if $nb-word < length($font-name) {
+        $url: $url + "+";
+      }
+    }
+
+    @if $nb < length($fonts) {
+      $url: $url + "|";
+    }
+  }
+
+  @import url(#{$url});
+}

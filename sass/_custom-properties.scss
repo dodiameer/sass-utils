@@ -1,0 +1,26 @@
+@use "sass:list";
+@use "list" as helpers;
+
+$property-prefix: "css" !default;
+
+@mixin define($properties, $prefix: $property-prefix) {
+  @each $name, $value in $properties {
+    @if type-of($value) == map {
+      @include define($value, $prefix: $prefix + "-" + $name);
+    } @else {
+      --#{$prefix}-#{$name}: #{$value};
+    }
+  }
+}
+
+@function get($names, $prefix: $property-prefix) {
+  $name: list.nth($names, 1);
+  @if length($list: $names) == 1 {
+    @return var(--#{$prefix}-#{$name});
+  } @else {
+    @return get(
+      $names: helpers.list-slice($names, 2),
+      $prefix: $prefix + "-" + $name
+    );
+  }
+}

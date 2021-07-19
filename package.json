@@ -1,0 +1,25 @@
+{
+  "name": "@dodiameer/sass-utils",
+  "version": "1.0.0",
+  "description": "Sass utilities, mixins, functions that you write in every project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sass",
+    "scss",
+    "eyeglass-module"
+  ],
+  "author": "dodiameer",
+  "license": "MIT",
+  "devDependencies": {
+    "eyeglass": "^3.0.3"
+  },
+  "eyeglass": {
+    "sassDir": "sass",
+    "exports": "eyeglass-exports.js",
+    "name": "dodiameer-utils",
+    "needs": "^3.0.3"
+  }
+}

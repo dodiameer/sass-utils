@@ -1,0 +1,24 @@
+@mixin all {
+  *,
+  *::before,
+  *::after {
+    @content;
+  }
+}
+
+@mixin headings($from: 1, $to: 6) {
+  @for $level from $from through $to {
+    h#{$level} {
+      @content;
+    }
+  }
+}
+
+@mixin buttons {
+  button,
+  [type="button"],
+  [type="reset"],
+  [type="submit"] {
+    @content;
+  }
+}
